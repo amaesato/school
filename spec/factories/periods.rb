@@ -1,19 +1,20 @@
 FactoryGirl.define do
   factory :period do
-    teacher "Mr. Smith"
-    grade 1
     institution_id @institution_id
-  end
 
-  factory :period2, class: Period do
-    teacher "Mr. Smith"
-    grade 5
-    institution_id @institution_id
-  end
+    trait :grade1 do
+      teacher "Mr. Smith"
+      grade 1
+    end
 
-  factory :period3, class: Period do
-    teacher "Mr. Smith"
-    grade 10
-    institution_id @institution_id
+    trait :grade2 do
+      teacher "Mrs. Smith"
+      grade 2
+    end
+
+    trait :grade3 do
+      teacher "Miss. Smith"
+      grade 3
+    end
   end
 end

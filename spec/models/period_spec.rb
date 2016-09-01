@@ -15,16 +15,16 @@ RSpec.describe Period, type: :model do
 
     describe "#teacher_name_grade" do
       it "names the teacher with their grade" do
-        period = FactoryGirl.create(:period, institution_id: @institution_id)
+        period = FactoryGirl.create(:period, :grade1, institution_id: @institution_id)
         expect(period.teacher_name_grade).to eq("Mr. Smith - grade 1")
       end
     end
 
     describe "#teacher_by_grade" do
       it "order teachers by grade" do
-        grade1 = FactoryGirl.create(:period3, institution_id: @institution_id)
-        grade2 = FactoryGirl.create(:period, institution_id: @institution_id)
-        grade3 = FactoryGirl.create(:period2, institution_id: @institution_id)
+        grade1 = FactoryGirl.create(:period, :grade3, institution_id: @institution_id)
+        grade2 = FactoryGirl.create(:period, :grade1, institution_id: @institution_id)
+        grade3 = FactoryGirl.create(:period, :grade2, institution_id: @institution_id)
         ordered = Period.all.teacher_by_grade
         expect(ordered.first).to eq(grade2)
         expect(ordered.last).to eq(grade1)
